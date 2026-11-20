@@ -34,4 +34,9 @@ export interface StapAdaptiveWeightEval {
   readonly innovationResidual: number;
   readonly kalmanGain: number;
   readonly mahalanobisDistance: number;
+  readonly helmholtzEnergy: number;
+  readonly controlActuationEffort: number;
+  readonly allanVariance: number;
+  readonly activeRegime: StapAdaptiveWeightOperationalRegime;
+  readonly interlockTripped: boolean;
   
