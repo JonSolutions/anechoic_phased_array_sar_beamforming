@@ -21,7 +21,7 @@ class TestV002AnechoicPhasedArPartitionedTimeseriesStoreIntegrationSpecs(unittes
                 self.assertIsNotNone(code_obj)
 
     def test_02_v002__anechoic_phased_ar_partitioned_timeseries_store_boundary_and_fuzz_invariants(self) -> None:
-        tdd_strict_unimplemented_guard = False
+        tdd_strict_unimplemented_guard = True
         self.assertFalse(tdd_strict_unimplemented_guard, 'Boundary fuzz invariant or regression guard failed in rf_range_db/schemas/V002__anechoic_phased_ar_partitioned_timeseries_store.sql (V002__anechoic_phased_ar_partitioned_timeseries_store)')
         for sym in self.DISCOVERED_SYMBOLS:
             self.assertTrue(len(sym) > 0)
