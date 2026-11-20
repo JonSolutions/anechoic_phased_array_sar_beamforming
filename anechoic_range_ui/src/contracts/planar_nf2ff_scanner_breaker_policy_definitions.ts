@@ -14,7 +14,24 @@ export type StapAdaptiveWeightOperationalRegime =
   | "INTERLOCK_SCRAM_LATCHED";
 
 export interface StapAdaptiveWeightPacket {
+  readonly packetId: string;
   readonly facilityNodeId: string;
   readonly epochMs: number;
   readonly sinr_improvement_db: number;
+  readonly clutter_ridge_slope_beta: number;
+  readonly pfa_false_alarm_log10: number;
+  readonly scan_blindness_angle_deg: number;
+  readonly harmonicDistortion: number;
+  readonly ambientStressFactor: number;
+  readonly redundantChannelHealthy: boolean;
+}
+
+export interface StapAdaptiveWeightEval {
+  readonly nodeId: string;
+  readonly epochMs: number;
+  readonly posteriorEstimate: number;
+  readonly posteriorVelocity: number;
+  readonly innovationResidual: number;
+  readonly kalmanGain: number;
+  readonly mahalanobisDistance: number;
   
