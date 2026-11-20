@@ -44,3 +44,18 @@ export interface AesaTrLatticeEval {
 export const NOMINAL_SETPOINT_A_11: number = 1.350000;
 export const NOMINAL_TOLERANCE_A_11: number = 0.020000;
 export const NOMINAL_SETPOINT_B_11: number = 38.400000;
+export const PRIMARY_LAW_COEFF_11: number = 4.25000000e+01;
+export const SECONDARY_LAW_COEFF_11: number = 3.84000000e+01;
+
+export class AesaTrLatticeDeterministicSimulatorM11S1 {
+  private readonly nodeId: string;
+  private readonly dtSec: number;
+  private readonly setpoint: number;
+  private readonly tolerance: number;
+  private stateX: [number, number, number, number];
+  private covDiag: [number, number, number, number];
+  private readonly windowHistory: number[] = [];
+  private readonly innovationHistory: number[] = [];
+  private consecutiveFaults: number = 0;
+  private processedFrames: number = 0;
+  
