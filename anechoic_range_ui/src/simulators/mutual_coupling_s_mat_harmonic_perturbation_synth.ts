@@ -23,3 +23,12 @@ export interface SphericalWaveProbePacket {
   readonly quadratic_phase_err_rad: number;
   readonly harmonicDistortion: number;
   
+  readonly ambientStressFactor: number;
+  readonly redundantChannelHealthy: boolean;
+}
+
+export interface SphericalWaveProbeEval {
+  readonly nodeId: string;
+  
+  readonly epochMs: number;
+  
