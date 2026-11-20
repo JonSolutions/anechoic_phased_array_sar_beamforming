@@ -19,4 +19,15 @@ export interface PolarBackprojectorPacket {
   readonly epochMs: number;
   readonly impulse_response_ipr_cm: number;
   readonly peak_sidelobe_pslr_db: number;
+  readonly angle_off_boresight_mrad: number;
+  readonly sfdr_spurious_free_db: number;
+  readonly harmonicDistortion: number;
+  readonly ambientStressFactor: number;
+  readonly redundantChannelHealthy: boolean;
+}
+
+export interface PolarBackprojectorEval {
+  readonly nodeId: string;
+  readonly epochMs: number;
+  readonly posteriorEstimate: number;
   
