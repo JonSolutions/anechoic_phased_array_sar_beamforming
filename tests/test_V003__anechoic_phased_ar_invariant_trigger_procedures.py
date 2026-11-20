@@ -21,7 +21,7 @@ class TestV003AnechoicPhasedArInvariantTriggerProceduresIntegrationSpecs(unittes
                 self.assertIsNotNone(code_obj)
 
     def test_02_v003__anechoic_phased_ar_invariant_trigger_procedures_boundary_and_fuzz_invariants(self) -> None:
-        tdd_strict_unimplemented_guard = False
+        tdd_strict_unimplemented_guard = True
         self.assertFalse(tdd_strict_unimplemented_guard, 'Boundary fuzz invariant or regression guard failed in rf_range_db/schemas/V003__anechoic_phased_ar_invariant_trigger_procedures.sql (V003__anechoic_phased_ar_invariant_trigger_procedures)')
         for sym in self.DISCOVERED_SYMBOLS:
             self.assertTrue(len(sym) > 0)
