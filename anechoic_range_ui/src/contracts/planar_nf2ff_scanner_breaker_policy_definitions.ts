@@ -75,8 +75,39 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
     if (!Number.isFinite(pkt.clutter_ridge_slope_beta)) return false;
     if (!Number.isFinite(pkt.pfa_false_alarm_log10)) return false;
     if (!Number.isFinite(pkt.scan_blindness_angle_deg)) return false;
-    
     if (pkt.harmonicDistortion < 0 || pkt.harmonicDistortion > 1) return false;
-    
     return pkt.ambientStressFactor > 0;
+  }
+
+  public stepFilter(pkt: StapAdaptiveWeightPacket): StapAdaptiveWeightEval {
+    this.processedFrames += 1;
+    if (!this.validatePacket(pkt)) {
+      this.consecutiveFaults += 1;
+      this.activeRegime = "DEGRADED_FALLBACK";
+      return {
+        nodeId: this.nodeId,
+        epochMs: pkt.epochMs,
+        posteriorEstimate: this.stateX[0],
+        posteriorVelocity: this.stateX[1],
+        innovationResidual: 0,
+        kalmanGain: 0,
+        mahalanobisDistance: 99.9,
+        helmholtzEnergy: 0,
+        controlActuationEffort: 0,
+        allanVariance: this.computeAllanVariance(),
+        activeRegime: this.activeRegime,
+        interlockTripped: true,
+      };
+    }
+    const predX0 = this.stateX[0] + this.dtSec * this.stateX[1];
+    const predX1 = 0.95 * this.stateX[1] - 0.14 * (this.stateX[0] - this.setpoint);
+    const predX2 = 0.88 * this.stateX[2] + 0.12 * pkt.pfa_false_alarm_log10;
+    const dampX3 = this.stateX[3] * (1 - 0.01 * pkt.harmonicDistortion);
+    const predX3 = Math.max(0.05, Math.min(2.5, dampX3));
+    const qNoise = Math.max(this.tolerance * 0.04, 1e-8);
+    const predP0 = this.covDiag[0] + this.dtSec * this.covDiag[1] + qNoise;
+    const predP1 = this.covDiag[1] * 0.94 + qNoise;
+    const predP2 = this.covDiag[2] * 0.95 + qNoise;
+    const predP3 = this.covDiag[3] * 0.98 + qNoise * 0.1;
+    const measZ = pkt.sinr_improvement_db;
     
