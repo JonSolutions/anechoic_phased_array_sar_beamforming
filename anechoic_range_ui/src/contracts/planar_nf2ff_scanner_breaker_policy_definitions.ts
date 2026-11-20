@@ -61,3 +61,6 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
   private activeRegime: StapAdaptiveWeightOperationalRegime = "COLD_STANDBY";
 
   
+  constructor(nodeId: string, dtSec: number = 0.005) {
+    this.nodeId = nodeId;
+    
