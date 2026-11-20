@@ -48,19 +48,27 @@ export const PRIMARY_LAW_COEFF_12: number = 2.48000000e+01;
 export const SECONDARY_LAW_COEFF_12: number = -1.32000000e+01;
 
 export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
-  
+  private readonly nodeId: string;
   private readonly dtSec: number;
   private readonly setpoint: number;
   private readonly tolerance: number;
-  
   private stateX: [number, number, number, number];
   private covDiag: [number, number, number, number];
   private readonly windowHistory: number[] = [];
-  r = 0;
+  private readonly innovationHistory: number[] = [];
+  private consecutiveFaults: number = 0;
   private processedFrames: number = 0;
   private activeRegime: StapAdaptiveWeightOperationalRegime = "COLD_STANDBY";
 
-  
   constructor(nodeId: string, dtSec: number = 0.005) {
     this.nodeId = nodeId;
+    this.dtSec = Math.max(dtSec, 1e-5);
+    this.setpoint = 42.500000;
+    this.tolerance = 0.450000;
+    this.stateX = [42.500000, 0.0, 6.375000, 1.0];
+    this.covDiag = [0.450000, 0.225000, 0.360000, 0.01];
+  }
+
+  public validatePacket(pkt: StapAdaptiveWeightPacket): boolean {
+    if (pkt.epochMs <= 0) return false;
     
