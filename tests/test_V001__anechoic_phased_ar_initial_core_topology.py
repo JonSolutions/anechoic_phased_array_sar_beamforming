@@ -21,7 +21,7 @@ class TestV001AnechoicPhasedArInitialCoreTopologyIntegrationSpecs(unittest.TestC
                 self.assertIsNotNone(code_obj)
 
     def test_02_v001__anechoic_phased_ar_initial_core_topology_boundary_and_fuzz_invariants(self) -> None:
-        tdd_strict_unimplemented_guard = False
+        tdd_strict_unimplemented_guard = True
         self.assertFalse(tdd_strict_unimplemented_guard, 'Boundary fuzz invariant or regression guard failed in rf_range_db/schemas/V001__anechoic_phased_ar_initial_core_topology.sql (V001__anechoic_phased_ar_initial_core_topology)')
         for sym in self.DISCOVERED_SYMBOLS:
             self.assertTrue(len(sym) > 0)
