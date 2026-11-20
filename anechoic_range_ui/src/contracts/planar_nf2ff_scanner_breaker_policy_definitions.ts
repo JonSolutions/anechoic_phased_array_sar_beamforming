@@ -54,4 +54,10 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
   private readonly tolerance: number;
   
   private stateX: [number, number, number, number];
+  private covDiag: [number, number, number, number];
+  private readonly windowHistory: number[] = [];
+  r = 0;
+  private processedFrames: number = 0;
+  private activeRegime: StapAdaptiveWeightOperationalRegime = "COLD_STANDBY";
+
   
