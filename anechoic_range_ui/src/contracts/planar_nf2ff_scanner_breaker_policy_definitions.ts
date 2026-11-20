@@ -39,4 +39,19 @@ export interface StapAdaptiveWeightEval {
   readonly allanVariance: number;
   readonly activeRegime: StapAdaptiveWeightOperationalRegime;
   readonly interlockTripped: boolean;
+}
+
+export const NOMINAL_SETPOINT_A_12: number = 42.500000;
+export const NOMINAL_TOLERANCE_A_12: number = 0.450000;
+export const NOMINAL_SETPOINT_B_12: number = -6.000000;
+export const PRIMARY_LAW_COEFF_12: number = 2.48000000e+01;
+export const SECONDARY_LAW_COEFF_12: number = -1.32000000e+01;
+
+export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
+  
+  private readonly dtSec: number;
+  private readonly setpoint: number;
+  private readonly tolerance: number;
+  
+  private stateX: [number, number, number, number];
   
