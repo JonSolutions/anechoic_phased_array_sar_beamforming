@@ -23,4 +23,9 @@ CREATE TABLE IF NOT EXISTS anechoic_phased__domain.tbl_gan_tr_module_lattice_r1 
     recorded_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT ck_gan_tr_module_lattice_r1_ts CHECK (captured_epoch_ms > 0),
     CONSTRAINT ck_gan_tr_module_lattice_r1_z CHECK (normalized_z_score >= 0.0)
+);
+
+CREATE INDEX IF NOT EXISTS ix_gan_tr_module_lattice_r1_station_ts
+    ON anechoic_phased__domain.tbl_gan_tr_module_lattice_r1
+    (station_code, captured_epoch_ms DESC);
     
