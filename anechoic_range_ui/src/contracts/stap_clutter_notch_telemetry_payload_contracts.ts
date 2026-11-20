@@ -74,4 +74,33 @@ export class AesaTrLatticeDeterministicSimulatorM11S1 {
     if (!Number.isFinite(pkt.active_vswr_ratio)) return false;
     if (!Number.isFinite(pkt.six_bit_phase_lsb_deg)) return false;
     if (!Number.isFinite(pkt.probe_corrected_gain_dbi)) return false;
+    if (!Number.isFinite(pkt.monostatic_rcs_dbsm)) return false;
+    if (pkt.harmonicDistortion < 0 || pkt.harmonicDistortion > 1) return false;
+    return pkt.ambientStressFactor > 0;
+  }
+
+  public stepFilter(pkt: AesaTrLatticePacket): AesaTrLatticeEval {
+    this.processedFrames += 1;
+    if (!this.validatePacket(pkt)) {
+      this.consecutiveFaults += 1;
+      this.activeRegime = "DEGRADED_FALLBACK";
+      return {
+        nodeId: this.nodeId,
+        epochMs: pkt.epochMs,
+        posteriorEstimate: this.stateX[0],
+        posteriorVelocity: this.stateX[1],
+        innovationResidual: 0,
+        kalmanGain: 0,
+        mahalanobisDistance: 99.9,
+        helmholtzEnergy: 0,
+        controlActuationEffort: 0,
+        allanVariance: this.computeAllanVariance(),
+        activeRegime: this.activeRegime,
+        interlockTripped: true,
+      };
+    }
+    const predX0 = this.stateX[0] + this.dtSec * this.stateX[1];
+    const predX1 = 0.95 * this.stateX[1] - 0.14 * (this.stateX[0] - this.setpoint);
+    const predX2 = 0.88 * this.stateX[2] + 0.12 * pkt.probe_corrected_gain_dbi;
+    const dampX3 = this.stateX[3] * (1 - 0.01 * pkt.harmonicDistortion);
     
