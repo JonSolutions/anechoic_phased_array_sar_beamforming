@@ -173,3 +173,12 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
   public computeControlActuation(): number {
     const err = this.setpoint - this.stateX[0];
     const vel = this.stateX[1];
+    const tail = this.innovationHistory.slice(-16);
+    const intSum = tail.reduce((acc, v) => acc + v, 0);
+    const raw = 0.58 * err - 0.14 * vel + 0.03 * intSum;
+    const limit = Math.abs(this.setpoint) * 0.45 + 5.0;
+    return Math.max(-limit, Math.min(limit, raw));
+  }
+
+  public computeAllanVariance(): number {
+    if (this.windowHistory.length < 3) return 0;
