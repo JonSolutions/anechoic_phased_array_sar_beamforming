@@ -150,3 +150,4 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
     if (!healthy || mDist > 6.0) {
       this.consecutiveFaults += 1;
       this.activeRegime =
+        this.consecutiveFaults >= 3 ? "INTERLOCK_SCRAM_LATCHED" : "HIGH_GRADIENT_DAMPING";
