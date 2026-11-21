@@ -170,3 +170,5 @@ export class AesaTrLatticeDeterministicSimulatorM11S1 {
     return 0.5 * diff * diff + 0.18 * c * nl + PRIMARY_LAW_COEFF_11 * s * s;
   }
 
+  public computeControlActuation(): number {
+    const err = this.setpoint - this.stateX[0];
