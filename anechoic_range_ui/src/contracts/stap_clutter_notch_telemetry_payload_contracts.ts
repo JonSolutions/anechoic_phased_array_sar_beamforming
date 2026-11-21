@@ -215,3 +215,5 @@ export class AesaTrLatticeDeterministicSimulatorM11S1 {
 
 export class SphericalWaveProbeDeterministicSimulatorM11S2 {
   private readonly nodeId: string;
+  private readonly dtSec: number;
+  private readonly setpoint: number;
