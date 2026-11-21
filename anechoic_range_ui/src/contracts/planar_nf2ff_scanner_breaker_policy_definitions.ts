@@ -149,3 +149,4 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
   private updateRegime(mDist: number, healthy: boolean): void {
     if (!healthy || mDist > 6.0) {
       this.consecutiveFaults += 1;
+      this.activeRegime =
