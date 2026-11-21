@@ -208,3 +208,10 @@ export class AesaTrLatticeDeterministicSimulatorM11S1 {
         redundantChannelHealthy: true,
       };
       results.push(this.stepFilter(pkt));
+    }
+    return results;
+  }
+}
+
+export class SphericalWaveProbeDeterministicSimulatorM11S2 {
+  private readonly nodeId: string;
