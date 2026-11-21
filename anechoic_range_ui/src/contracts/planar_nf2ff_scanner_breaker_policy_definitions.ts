@@ -110,4 +110,20 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
     const predP2 = this.covDiag[2] * 0.95 + qNoise;
     const predP3 = this.covDiag[3] * 0.98 + qNoise * 0.1;
     const measZ = pkt.sinr_improvement_db;
-    
+    const rNoise = Math.max(this.tolerance * (1 + pkt.harmonicDistortion), 1e-7);
+    const innov = measZ - predX0;
+    const sCov = predP0 + rNoise;
+    const k0 = predP0 / sCov;
+    const k1 = (0.25 * predP1) / sCov;
+    this.stateX = [predX0 + k0 * innov, predX1 + k1 * innov, predX2, predX3];
+    this.covDiag = [
+      Math.max((1 - k0) * predP0, 1e-12),
+      Math.max((1 - 0.25 * k1) * predP1, 1e-12),
+      predP2,
+      predP3,
+    ];
+    this.windowHistory.push(measZ);
+    if (this.windowHistory.length > 128) this.windowHistory.shift();
+    this.innovationHistory.push(innov);
+    if (this.innovationHistory.length > 128) this.innovationHistory.shift();
+    const mDist = Math.sqrt((innov * innov) / Math.max(sCov, 1e-12));
