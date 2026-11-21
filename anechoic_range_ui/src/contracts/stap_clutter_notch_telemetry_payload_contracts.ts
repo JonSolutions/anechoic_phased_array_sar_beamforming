@@ -164,3 +164,5 @@ export class AesaTrLatticeDeterministicSimulatorM11S1 {
     const p = pkt.active_vswr_ratio;
     const s = pkt.six_bit_phase_lsb_deg;
     const c = pkt.probe_corrected_gain_dbi;
+    const normP = p / Math.max(Math.abs(this.setpoint), 1e-9);
+    const nl = Math.tanh(normP - 1.0);
