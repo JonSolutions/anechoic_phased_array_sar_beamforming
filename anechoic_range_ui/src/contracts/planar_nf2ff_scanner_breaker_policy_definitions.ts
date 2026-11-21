@@ -220,3 +220,8 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
   private readonly tolerance: number;
   private stateX: [number, number, number, number];
   private covDiag: [number, number, number, number];
+  private readonly windowHistory: number[] = [];
+  private readonly innovationHistory: number[] = [];
+  private consecutiveFaults: number = 0;
+  private processedFrames: number = 0;
+  private activeRegime: StapAdaptiveWeightOperationalRegime = "COLD_STANDBY";
