@@ -172,3 +172,4 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
 
   public computeControlActuation(): number {
     const err = this.setpoint - this.stateX[0];
+    const vel = this.stateX[1];
