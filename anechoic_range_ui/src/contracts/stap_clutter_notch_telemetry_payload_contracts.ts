@@ -172,3 +172,7 @@ export class AesaTrLatticeDeterministicSimulatorM11S1 {
 
   public computeControlActuation(): number {
     const err = this.setpoint - this.stateX[0];
+    const vel = this.stateX[1];
+    const tail = this.innovationHistory.slice(-16);
+    const intSum = tail.reduce((acc, v) => acc + v, 0);
+    const raw = 0.58 * err - 0.14 * vel + 0.03 * intSum;
