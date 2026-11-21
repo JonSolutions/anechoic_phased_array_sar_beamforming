@@ -187,3 +187,4 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
       const d = this.windowHistory[i] - this.windowHistory[i - 1];
       acc += d * d;
     }
+    return acc / (2 * (this.windowHistory.length - 1));
