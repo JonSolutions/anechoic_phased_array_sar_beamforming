@@ -158,3 +158,4 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
       this.consecutiveFaults = 0;
       this.activeRegime = "CLOSED_LOOP_NOMINAL";
     }
+  }
