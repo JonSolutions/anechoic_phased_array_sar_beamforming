@@ -163,3 +163,4 @@ export class AesaTrLatticeDeterministicSimulatorM11S1 {
   public computeHelmholtzEnergy(pkt: AesaTrLatticePacket): number {
     const p = pkt.active_vswr_ratio;
     const s = pkt.six_bit_phase_lsb_deg;
+    const c = pkt.probe_corrected_gain_dbi;
