@@ -163,3 +163,4 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
   public computeHelmholtzEnergy(pkt: StapAdaptiveWeightPacket): number {
     const p = pkt.sinr_improvement_db;
     const s = pkt.clutter_ridge_slope_beta;
+    const c = pkt.pfa_false_alarm_log10;
