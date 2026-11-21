@@ -188,3 +188,22 @@ export class AesaTrLatticeDeterministicSimulatorM11S1 {
       acc += d * d;
     }
     return acc / (2 * (this.windowHistory.length - 1));
+  }
+
+  public generateSyntheticStream(steps: number = 24): AesaTrLatticeEval[] {
+    const results: AesaTrLatticeEval[] = [];
+    const baseEpoch = 1763510000000;
+    for (let k = 0; k < steps; k += 1) {
+      const phase = k * 0.39;
+      const pkt: AesaTrLatticePacket = {
+        packetId: `ANECHOIC-${k + 1}`,
+        facilityNodeId: this.nodeId,
+        epochMs: baseEpoch + k * 25,
+        active_vswr_ratio: this.setpoint + Math.sin(phase) * this.tolerance * 0.8,
+        six_bit_phase_lsb_deg: this.setpoint * 0.22 + 1.0 + 0.04 * Math.cos(phase),
+        probe_corrected_gain_dbi: NOMINAL_SETPOINT_B_11 + Math.cos(phase) * 0.220000,
+        monostatic_rcs_dbsm: -18.500000 * (1 + 0.002 * Math.sin(phase)),
+        harmonicDistortion: 0.02 + 0.008 * Math.abs(Math.sin(phase)),
+        ambientStressFactor: 1.0 + 0.03 * Math.abs(Math.cos(phase)),
+        redundantChannelHealthy: true,
+      };
