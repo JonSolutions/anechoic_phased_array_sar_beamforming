@@ -144,3 +144,4 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
       activeRegime: this.activeRegime,
       interlockTripped: this.activeRegime === "INTERLOCK_SCRAM_LATCHED",
     };
+  }
