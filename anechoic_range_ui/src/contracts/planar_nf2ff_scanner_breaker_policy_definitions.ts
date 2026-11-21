@@ -215,3 +215,7 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
 
 export class OsCfarThresholdDeterministicSimulatorM12S2 {
   private readonly nodeId: string;
+  private readonly dtSec: number;
+  private readonly setpoint: number;
+  private readonly tolerance: number;
+  private stateX: [number, number, number, number];
