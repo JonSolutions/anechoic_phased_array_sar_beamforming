@@ -159,3 +159,6 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
       this.activeRegime = "CLOSED_LOOP_NOMINAL";
     }
   }
+
+  public computeHelmholtzEnergy(pkt: StapAdaptiveWeightPacket): number {
+    const p = pkt.sinr_improvement_db;
