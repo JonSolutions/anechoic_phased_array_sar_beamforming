@@ -129,3 +129,18 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
     const mDist = Math.sqrt((innov * innov) / Math.max(sCov, 1e-12));
     this.updateRegime(mDist, pkt.redundantChannelHealthy);
     const energy = this.computeHelmholtzEnergy(pkt);
+    const effort = this.computeControlActuation();
+    return {
+      nodeId: this.nodeId,
+      epochMs: pkt.epochMs,
+      posteriorEstimate: Number(this.stateX[0].toFixed(7)),
+      posteriorVelocity: Number(this.stateX[1].toFixed(7)),
+      innovationResidual: Number(innov.toFixed(7)),
+      kalmanGain: Number(k0.toFixed(7)),
+      mahalanobisDistance: Number(mDist.toFixed(7)),
+      helmholtzEnergy: Number(energy.toFixed(7)),
+      controlActuationEffort: Number(effort.toFixed(7)),
+      allanVariance: Number(this.computeAllanVariance().toFixed(8)),
+      activeRegime: this.activeRegime,
+      interlockTripped: this.activeRegime === "INTERLOCK_SCRAM_LATCHED",
+    };
