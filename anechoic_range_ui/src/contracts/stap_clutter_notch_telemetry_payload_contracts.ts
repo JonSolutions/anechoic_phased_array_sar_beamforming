@@ -153,3 +153,4 @@ export class AesaTrLatticeDeterministicSimulatorM11S1 {
         this.consecutiveFaults >= 3 ? "INTERLOCK_SCRAM_LATCHED" : "HIGH_GRADIENT_DAMPING";
     } else if (mDist > 3.0) {
       this.consecutiveFaults = Math.max(0, this.consecutiveFaults - 1);
+      this.activeRegime = "HIGH_GRADIENT_DAMPING";
