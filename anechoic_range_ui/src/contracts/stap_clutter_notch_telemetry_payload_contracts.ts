@@ -167,3 +167,6 @@ export class AesaTrLatticeDeterministicSimulatorM11S1 {
     const normP = p / Math.max(Math.abs(this.setpoint), 1e-9);
     const nl = Math.tanh(normP - 1.0);
     const diff = p - this.setpoint;
+    return 0.5 * diff * diff + 0.18 * c * nl + PRIMARY_LAW_COEFF_11 * s * s;
+  }
+
