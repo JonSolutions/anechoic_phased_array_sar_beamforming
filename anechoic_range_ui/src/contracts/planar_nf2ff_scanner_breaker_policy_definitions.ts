@@ -209,3 +209,4 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
       };
       results.push(this.stepFilter(pkt));
     }
+    return results;
