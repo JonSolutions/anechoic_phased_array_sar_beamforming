@@ -234,3 +234,4 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
     this.stateX = [-6.000000, 0.0, -0.900000, 1.0];
     this.covDiag = [0.050000, 0.025000, 0.040000, 0.01];
   }
+
