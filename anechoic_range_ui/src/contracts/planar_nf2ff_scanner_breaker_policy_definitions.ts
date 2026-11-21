@@ -208,3 +208,4 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
         redundantChannelHealthy: true,
       };
       results.push(this.stepFilter(pkt));
+    }
