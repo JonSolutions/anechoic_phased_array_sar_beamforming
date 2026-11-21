@@ -182,3 +182,4 @@ export class AesaTrLatticeDeterministicSimulatorM11S1 {
 
   public computeAllanVariance(): number {
     if (this.windowHistory.length < 3) return 0;
+    let acc = 0;
