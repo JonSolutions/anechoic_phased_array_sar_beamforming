@@ -225,3 +225,12 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
   private consecutiveFaults: number = 0;
   private processedFrames: number = 0;
   private activeRegime: StapAdaptiveWeightOperationalRegime = "COLD_STANDBY";
+
+  constructor(nodeId: string, dtSec: number = 0.005) {
+    this.nodeId = nodeId;
+    this.dtSec = Math.max(dtSec, 1e-5);
+    this.setpoint = -6.000000;
+    this.tolerance = 0.050000;
+    this.stateX = [-6.000000, 0.0, -0.900000, 1.0];
+    this.covDiag = [0.050000, 0.025000, 0.040000, 0.01];
+  }
