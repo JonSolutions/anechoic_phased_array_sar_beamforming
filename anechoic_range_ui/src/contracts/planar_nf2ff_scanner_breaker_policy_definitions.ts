@@ -219,3 +219,4 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
   private readonly setpoint: number;
   private readonly tolerance: number;
   private stateX: [number, number, number, number];
+  private covDiag: [number, number, number, number];
