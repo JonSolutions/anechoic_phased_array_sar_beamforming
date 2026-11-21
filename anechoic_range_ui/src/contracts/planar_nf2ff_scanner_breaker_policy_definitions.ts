@@ -210,3 +210,8 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
       results.push(this.stepFilter(pkt));
     }
     return results;
+  }
+}
+
+export class OsCfarThresholdDeterministicSimulatorM12S2 {
+  private readonly nodeId: string;
