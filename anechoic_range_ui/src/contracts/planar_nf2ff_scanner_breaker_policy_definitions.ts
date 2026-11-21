@@ -128,3 +128,4 @@ export class StapAdaptiveWeightDeterministicSimulatorM12S1 {
     if (this.innovationHistory.length > 128) this.innovationHistory.shift();
     const mDist = Math.sqrt((innov * innov) / Math.max(sCov, 1e-12));
     this.updateRegime(mDist, pkt.redundantChannelHealthy);
+    const energy = this.computeHelmholtzEnergy(pkt);
