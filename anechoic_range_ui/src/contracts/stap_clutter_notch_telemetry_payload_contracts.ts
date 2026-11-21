@@ -166,3 +166,4 @@ export class AesaTrLatticeDeterministicSimulatorM11S1 {
     const c = pkt.probe_corrected_gain_dbi;
     const normP = p / Math.max(Math.abs(this.setpoint), 1e-9);
     const nl = Math.tanh(normP - 1.0);
+    const diff = p - this.setpoint;
