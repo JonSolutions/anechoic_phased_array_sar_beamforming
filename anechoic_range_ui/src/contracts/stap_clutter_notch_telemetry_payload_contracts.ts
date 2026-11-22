@@ -288,3 +288,4 @@ export class SphericalWaveProbeDeterministicSimulatorM11S2 {
       predP2,
       predP3,
     ];
+    this.windowHistory.push(measZ);
