@@ -270,3 +270,4 @@ export class SphericalWaveProbeDeterministicSimulatorM11S2 {
     const predX2 = 0.88 * this.stateX[2] + 0.12 * pkt.probe_corrected_gain_dbi;
     const dampX3 = this.stateX[3] * (1 - 0.01 * pkt.harmonicDistortion);
     const predX3 = Math.max(0.05, Math.min(2.5, dampX3));
+    const qNoise = Math.max(this.tolerance * 0.04, 1e-8);
