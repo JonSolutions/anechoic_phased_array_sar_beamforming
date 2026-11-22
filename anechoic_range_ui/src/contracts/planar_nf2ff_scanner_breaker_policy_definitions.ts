@@ -292,3 +292,4 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
     if (this.windowHistory.length > 128) this.windowHistory.shift();
     this.innovationHistory.push(innov);
     if (this.innovationHistory.length > 128) this.innovationHistory.shift();
+    const mDist = Math.sqrt((innov * innov) / Math.max(sCov, 1e-12));
