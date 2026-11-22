@@ -235,3 +235,32 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
     this.covDiag = [0.050000, 0.025000, 0.040000, 0.01];
   }
 
+  public validatePacket(pkt: StapAdaptiveWeightPacket): boolean {
+    if (pkt.epochMs <= 0) return false;
+    if (!Number.isFinite(pkt.sinr_improvement_db)) return false;
+    if (!Number.isFinite(pkt.clutter_ridge_slope_beta)) return false;
+    if (!Number.isFinite(pkt.pfa_false_alarm_log10)) return false;
+    if (!Number.isFinite(pkt.scan_blindness_angle_deg)) return false;
+    if (pkt.harmonicDistortion < 0 || pkt.harmonicDistortion > 1) return false;
+    return pkt.ambientStressFactor > 0;
+  }
+
+  public stepFilter(pkt: StapAdaptiveWeightPacket): StapAdaptiveWeightEval {
+    this.processedFrames += 1;
+    if (!this.validatePacket(pkt)) {
+      this.consecutiveFaults += 1;
+      this.activeRegime = "DEGRADED_FALLBACK";
+      return {
+        nodeId: this.nodeId,
+        epochMs: pkt.epochMs,
+        posteriorEstimate: this.stateX[0],
+        posteriorVelocity: this.stateX[1],
+        innovationResidual: 0,
+        kalmanGain: 0,
+        mahalanobisDistance: 99.9,
+        helmholtzEnergy: 0,
+        controlActuationEffort: 0,
+        allanVariance: this.computeAllanVariance(),
+        activeRegime: this.activeRegime,
+        interlockTripped: true,
+      };
