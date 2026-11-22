@@ -266,3 +266,4 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
       };
     }
     const predX0 = this.stateX[0] + this.dtSec * this.stateX[1];
+    const predX1 = 0.95 * this.stateX[1] - 0.14 * (this.stateX[0] - this.setpoint);
