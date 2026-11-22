@@ -271,3 +271,16 @@ export class SphericalWaveProbeDeterministicSimulatorM11S2 {
     const dampX3 = this.stateX[3] * (1 - 0.01 * pkt.harmonicDistortion);
     const predX3 = Math.max(0.05, Math.min(2.5, dampX3));
     const qNoise = Math.max(this.tolerance * 0.04, 1e-8);
+    const predP0 = this.covDiag[0] + this.dtSec * this.covDiag[1] + qNoise;
+    const predP1 = this.covDiag[1] * 0.94 + qNoise;
+    const predP2 = this.covDiag[2] * 0.95 + qNoise;
+    const predP3 = this.covDiag[3] * 0.98 + qNoise * 0.1;
+    const measZ = pkt.active_vswr_ratio;
+    const rNoise = Math.max(this.tolerance * (1 + pkt.harmonicDistortion), 1e-7);
+    const innov = measZ - predX0;
+    const sCov = predP0 + rNoise;
+    const k0 = predP0 / sCov;
+    const k1 = (0.25 * predP1) / sCov;
+    this.stateX = [predX0 + k0 * innov, predX1 + k1 * innov, predX2, predX3];
+    this.covDiag = [
+      Math.max((1 - k0) * predP0, 1e-12),
