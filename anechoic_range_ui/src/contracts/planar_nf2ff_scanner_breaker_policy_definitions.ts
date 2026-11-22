@@ -264,3 +264,5 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
         activeRegime: this.activeRegime,
         interlockTripped: true,
       };
+    }
+    const predX0 = this.stateX[0] + this.dtSec * this.stateX[1];
