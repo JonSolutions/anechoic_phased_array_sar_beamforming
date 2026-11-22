@@ -231,3 +231,21 @@ export class SphericalWaveProbeDeterministicSimulatorM11S2 {
     this.dtSec = Math.max(dtSec, 1e-5);
     this.setpoint = 38.400000;
     this.tolerance = 0.220000;
+    this.stateX = [38.400000, 0.0, 5.760000, 1.0];
+    this.covDiag = [0.220000, 0.110000, 0.176000, 0.01];
+  }
+
+  public validatePacket(pkt: AesaTrLatticePacket): boolean {
+    if (pkt.epochMs <= 0) return false;
+    if (!Number.isFinite(pkt.active_vswr_ratio)) return false;
+    if (!Number.isFinite(pkt.six_bit_phase_lsb_deg)) return false;
+    if (!Number.isFinite(pkt.probe_corrected_gain_dbi)) return false;
+    if (!Number.isFinite(pkt.monostatic_rcs_dbsm)) return false;
+    if (pkt.harmonicDistortion < 0 || pkt.harmonicDistortion > 1) return false;
+    return pkt.ambientStressFactor > 0;
+  }
+
+  public stepFilter(pkt: AesaTrLatticePacket): AesaTrLatticeEval {
+    this.processedFrames += 1;
+    if (!this.validatePacket(pkt)) {
+      this.consecutiveFaults += 1;
