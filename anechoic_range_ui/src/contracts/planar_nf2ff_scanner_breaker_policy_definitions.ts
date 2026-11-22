@@ -288,3 +288,7 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
       predP2,
       predP3,
     ];
+    this.windowHistory.push(measZ);
+    if (this.windowHistory.length > 128) this.windowHistory.shift();
+    this.innovationHistory.push(innov);
+    if (this.innovationHistory.length > 128) this.innovationHistory.shift();
