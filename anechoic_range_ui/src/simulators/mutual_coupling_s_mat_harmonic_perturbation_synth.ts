@@ -76,3 +76,4 @@ export class SphericalWaveProbeDeterministicSimulatorM14S1 {
     if (!Number.isFinite(pkt.monostatic_rcs_dbsm)) return false;
     if (!Number.isFinite(pkt.quadratic_phase_err_rad)) return false;
     if (pkt.harmonicDistortion < 0 || pkt.harmonicDistortion > 1) return false;
+    return pkt.ambientStressFactor > 0;
