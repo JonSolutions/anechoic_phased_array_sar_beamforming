@@ -74,3 +74,4 @@ export class SphericalWaveProbeDeterministicSimulatorM14S1 {
     if (!Number.isFinite(pkt.probe_corrected_gain_dbi)) return false;
     if (!Number.isFinite(pkt.quiet_zone_ripple_db)) return false;
     if (!Number.isFinite(pkt.monostatic_rcs_dbsm)) return false;
+    if (!Number.isFinite(pkt.quadratic_phase_err_rad)) return false;

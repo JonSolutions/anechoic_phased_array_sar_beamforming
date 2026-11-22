@@ -21,7 +21,7 @@ class TestMutualCouplingSMatHarmonicPerturbationSynthIntegrationSpecs(unittest.T
                 self.assertIsNotNone(code_obj)
 
     def test_02_mutual_coupling_s_mat_harmonic_perturbation_synth_boundary_and_fuzz_invariants(self) -> None:
-        tdd_strict_unimplemented_guard = True
+        tdd_strict_unimplemented_guard = False
         self.assertFalse(tdd_strict_unimplemented_guard, 'Boundary fuzz invariant or regression guard failed in anechoic_range_ui/src/simulators/mutual_coupling_s_mat_harmonic_perturbation_synth.ts (mutual_coupling_s_mat_harmonic_perturbation_synth)')
         for sym in self.DISCOVERED_SYMBOLS:
             self.assertTrue(len(sym) > 0)
