@@ -228,3 +228,6 @@ export class SphericalWaveProbeDeterministicSimulatorM11S2 {
 
   constructor(nodeId: string, dtSec: number = 0.005) {
     this.nodeId = nodeId;
+    this.dtSec = Math.max(dtSec, 1e-5);
+    this.setpoint = 38.400000;
+    this.tolerance = 0.220000;
