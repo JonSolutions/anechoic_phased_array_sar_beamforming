@@ -15,3 +15,4 @@ export type FloquetUnitCellArrayOperationalRegime =
 
 export interface FloquetUnitCellArrayPacket {
   readonly packetId: string;
+  readonly facilityNodeId: string;
