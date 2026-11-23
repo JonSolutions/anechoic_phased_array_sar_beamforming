@@ -8,3 +8,4 @@
 export type InverseSarRangeProfileOperationalRegime =
   | "COLD_STANDBY"
   | "PRE_START_CHECK"
+  | "CLOSED_LOOP_NOMINAL"
