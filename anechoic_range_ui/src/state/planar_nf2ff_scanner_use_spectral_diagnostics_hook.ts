@@ -20,3 +20,4 @@ export interface FloquetUnitCellArrayPacket {
   readonly scan_blindness_angle_deg: number;
   readonly element_efficiency_pct: number;
   readonly migration_cell_frac: number;
+  readonly sinr_improvement_db: number;
