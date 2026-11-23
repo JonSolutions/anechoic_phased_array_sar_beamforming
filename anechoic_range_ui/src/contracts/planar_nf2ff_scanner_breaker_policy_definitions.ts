@@ -415,3 +415,9 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
     this.processedFrames += 1;
     if (!this.validatePacket(pkt)) {
       this.consecutiveFaults += 1;
+      this.activeRegime = "DEGRADED_FALLBACK";
+      return {
+        nodeId: this.nodeId,
+        epochMs: pkt.epochMs,
+        posteriorEstimate: this.stateX[0],
+        posteriorVelocity: this.stateX[1],
