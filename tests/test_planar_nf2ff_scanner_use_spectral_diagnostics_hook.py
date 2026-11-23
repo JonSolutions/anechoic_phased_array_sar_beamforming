@@ -21,7 +21,7 @@ class TestPlanarNf2FfScannerUseSpectralDiagnosticsHookIntegrationSpecs(unittest.
                 self.assertIsNotNone(code_obj)
 
     def test_02_planar_nf2ff_scanner_use_spectral_diagnostics_hook_boundary_and_fuzz_invariants(self) -> None:
-        tdd_strict_unimplemented_guard = True
+        tdd_strict_unimplemented_guard = False
         self.assertFalse(tdd_strict_unimplemented_guard, 'Boundary fuzz invariant or regression guard failed in anechoic_range_ui/src/state/planar_nf2ff_scanner_use_spectral_diagnostics_hook.ts (planar_nf2ff_scanner_use_spectral_diagnostics_hook)')
         for sym in self.DISCOVERED_SYMBOLS:
             self.assertTrue(len(sym) > 0)

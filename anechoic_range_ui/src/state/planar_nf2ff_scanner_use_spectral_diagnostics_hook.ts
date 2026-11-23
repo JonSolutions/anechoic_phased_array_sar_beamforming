@@ -16,3 +16,5 @@ export type FloquetUnitCellArrayOperationalRegime =
 export interface FloquetUnitCellArrayPacket {
   readonly packetId: string;
   readonly facilityNodeId: string;
+  readonly epochMs: number;
+  readonly scan_blindness_angle_deg: number;
