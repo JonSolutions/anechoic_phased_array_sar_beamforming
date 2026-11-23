@@ -388,3 +388,16 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
   private covDiag: [number, number, number, number];
   private readonly windowHistory: number[] = [];
   private readonly innovationHistory: number[] = [];
+  private consecutiveFaults: number = 0;
+  private processedFrames: number = 0;
+  private activeRegime: StapAdaptiveWeightOperationalRegime = "COLD_STANDBY";
+
+  constructor(nodeId: string, dtSec: number = 0.005) {
+    this.nodeId = nodeId;
+    this.dtSec = Math.max(dtSec, 1e-5);
+    this.setpoint = 58.000000;
+    this.tolerance = 0.500000;
+    this.stateX = [58.000000, 0.0, 8.700000, 1.0];
+    this.covDiag = [0.500000, 0.250000, 0.400000, 0.01];
+  }
+
