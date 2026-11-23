@@ -358,3 +358,6 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
 
   public generateSyntheticStream(steps: number = 24): StapAdaptiveWeightEval[] {
     const results: StapAdaptiveWeightEval[] = [];
+    const baseEpoch = 1763510000000;
+    for (let k = 0; k < steps; k += 1) {
+      const phase = k * 0.39;
