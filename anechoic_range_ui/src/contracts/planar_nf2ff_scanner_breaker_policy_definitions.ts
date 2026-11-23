@@ -346,3 +346,6 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
     return Math.max(-limit, Math.min(limit, raw));
   }
 
+  public computeAllanVariance(): number {
+    if (this.windowHistory.length < 3) return 0;
+    let acc = 0;
