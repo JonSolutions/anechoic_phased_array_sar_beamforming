@@ -413,3 +413,5 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
 
   public stepFilter(pkt: StapAdaptiveWeightPacket): StapAdaptiveWeightEval {
     this.processedFrames += 1;
+    if (!this.validatePacket(pkt)) {
+      this.consecutiveFaults += 1;
