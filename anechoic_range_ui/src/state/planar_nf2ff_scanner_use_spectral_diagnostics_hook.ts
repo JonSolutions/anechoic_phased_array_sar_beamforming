@@ -21,3 +21,4 @@ export interface FloquetUnitCellArrayPacket {
   readonly element_efficiency_pct: number;
   readonly migration_cell_frac: number;
   readonly sinr_improvement_db: number;
+  readonly harmonicDistortion: number;
