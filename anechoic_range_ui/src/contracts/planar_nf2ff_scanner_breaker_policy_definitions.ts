@@ -401,3 +401,6 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
     this.covDiag = [0.500000, 0.250000, 0.400000, 0.01];
   }
 
+  public validatePacket(pkt: StapAdaptiveWeightPacket): boolean {
+    if (pkt.epochMs <= 0) return false;
+    if (!Number.isFinite(pkt.sinr_improvement_db)) return false;
