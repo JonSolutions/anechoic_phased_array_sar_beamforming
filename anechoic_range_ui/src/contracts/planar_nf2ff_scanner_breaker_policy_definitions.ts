@@ -349,3 +349,5 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
   public computeAllanVariance(): number {
     if (this.windowHistory.length < 3) return 0;
     let acc = 0;
+    for (let i = 1; i < this.windowHistory.length; i += 1) {
+      const d = this.windowHistory[i] - this.windowHistory[i - 1];
