@@ -377,3 +377,13 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
     }
     return results;
   }
+}
+
+export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
+  private readonly nodeId: string;
+  private readonly dtSec: number;
+  private readonly setpoint: number;
+  private readonly tolerance: number;
+  private stateX: [number, number, number, number];
+  private covDiag: [number, number, number, number];
+  private readonly windowHistory: number[] = [];
