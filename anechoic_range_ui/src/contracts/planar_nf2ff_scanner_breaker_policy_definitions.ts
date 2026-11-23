@@ -404,3 +404,12 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
   public validatePacket(pkt: StapAdaptiveWeightPacket): boolean {
     if (pkt.epochMs <= 0) return false;
     if (!Number.isFinite(pkt.sinr_improvement_db)) return false;
+    if (!Number.isFinite(pkt.clutter_ridge_slope_beta)) return false;
+    if (!Number.isFinite(pkt.pfa_false_alarm_log10)) return false;
+    if (!Number.isFinite(pkt.scan_blindness_angle_deg)) return false;
+    if (pkt.harmonicDistortion < 0 || pkt.harmonicDistortion > 1) return false;
+    return pkt.ambientStressFactor > 0;
+  }
+
+  public stepFilter(pkt: StapAdaptiveWeightPacket): StapAdaptiveWeightEval {
+    this.processedFrames += 1;
