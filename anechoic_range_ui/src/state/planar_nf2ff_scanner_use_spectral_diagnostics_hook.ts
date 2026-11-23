@@ -22,3 +22,5 @@ export interface FloquetUnitCellArrayPacket {
   readonly migration_cell_frac: number;
   readonly sinr_improvement_db: number;
   readonly harmonicDistortion: number;
+  readonly ambientStressFactor: number;
+  readonly redundantChannelHealthy: boolean;
