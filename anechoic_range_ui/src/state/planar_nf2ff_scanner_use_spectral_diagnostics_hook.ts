@@ -19,3 +19,4 @@ export interface FloquetUnitCellArrayPacket {
   readonly epochMs: number;
   readonly scan_blindness_angle_deg: number;
   readonly element_efficiency_pct: number;
+  readonly migration_cell_frac: number;
