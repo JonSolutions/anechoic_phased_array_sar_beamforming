@@ -7,3 +7,4 @@
 
 export type InverseSarRangeProfileOperationalRegime =
   | "COLD_STANDBY"
+  | "PRE_START_CHECK"
