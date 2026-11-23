@@ -18,3 +18,4 @@ export interface FloquetUnitCellArrayPacket {
   readonly facilityNodeId: string;
   readonly epochMs: number;
   readonly scan_blindness_angle_deg: number;
+  readonly element_efficiency_pct: number;
