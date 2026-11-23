@@ -320,3 +320,19 @@ export class SphericalWaveProbeDeterministicSimulatorM11S2 {
     } else if (mDist > 3.0) {
       this.consecutiveFaults = Math.max(0, this.consecutiveFaults - 1);
       this.activeRegime = "HIGH_GRADIENT_DAMPING";
+    } else {
+      this.consecutiveFaults = 0;
+      this.activeRegime = "CLOSED_LOOP_NOMINAL";
+    }
+  }
+
+  public computeHelmholtzEnergy(pkt: AesaTrLatticePacket): number {
+    const p = pkt.active_vswr_ratio;
+    const s = pkt.six_bit_phase_lsb_deg;
+    const c = pkt.probe_corrected_gain_dbi;
+    const normP = p / Math.max(Math.abs(this.setpoint), 1e-9);
+    const nl = Math.tanh(normP - 1.0);
+    const diff = p - this.setpoint;
+    return 0.5 * diff * diff + 0.18 * c * nl + PRIMARY_LAW_COEFF_11 * s * s;
+  }
+
