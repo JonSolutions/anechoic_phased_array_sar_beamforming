@@ -320,3 +320,6 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
     } else if (mDist > 3.0) {
       this.consecutiveFaults = Math.max(0, this.consecutiveFaults - 1);
       this.activeRegime = "HIGH_GRADIENT_DAMPING";
+    } else {
+      this.consecutiveFaults = 0;
+      this.activeRegime = "CLOSED_LOOP_NOMINAL";
