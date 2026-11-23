@@ -373,3 +373,5 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
         ambientStressFactor: 1.0 + 0.03 * Math.abs(Math.cos(phase)),
         redundantChannelHealthy: true,
       };
+      results.push(this.stepFilter(pkt));
+    }
