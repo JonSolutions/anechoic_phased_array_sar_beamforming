@@ -331,3 +331,5 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
     const s = pkt.clutter_ridge_slope_beta;
     const c = pkt.pfa_false_alarm_log10;
     const normP = p / Math.max(Math.abs(this.setpoint), 1e-9);
+    const nl = Math.tanh(normP - 1.0);
+    const diff = p - this.setpoint;
