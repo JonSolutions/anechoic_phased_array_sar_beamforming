@@ -356,3 +356,5 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
     return acc / (2 * (this.windowHistory.length - 1));
   }
 
+  public generateSyntheticStream(steps: number = 24): StapAdaptiveWeightEval[] {
+    const results: StapAdaptiveWeightEval[] = [];
