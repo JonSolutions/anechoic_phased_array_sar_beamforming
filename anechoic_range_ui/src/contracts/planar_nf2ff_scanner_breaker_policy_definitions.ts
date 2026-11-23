@@ -345,3 +345,4 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
     const limit = Math.abs(this.setpoint) * 0.45 + 5.0;
     return Math.max(-limit, Math.min(limit, raw));
   }
+
