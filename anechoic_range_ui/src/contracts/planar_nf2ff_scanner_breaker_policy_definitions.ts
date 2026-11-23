@@ -375,3 +375,4 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
       };
       results.push(this.stepFilter(pkt));
     }
+    return results;
