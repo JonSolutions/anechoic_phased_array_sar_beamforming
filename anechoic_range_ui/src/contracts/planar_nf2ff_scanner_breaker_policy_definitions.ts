@@ -361,3 +361,15 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
     const baseEpoch = 1763510000000;
     for (let k = 0; k < steps; k += 1) {
       const phase = k * 0.39;
+      const pkt: StapAdaptiveWeightPacket = {
+        packetId: `ANECHOIC-${k + 1}`,
+        facilityNodeId: this.nodeId,
+        epochMs: baseEpoch + k * 25,
+        sinr_improvement_db: this.setpoint + Math.sin(phase) * this.tolerance * 0.8,
+        clutter_ridge_slope_beta: this.setpoint * 0.22 + 1.0 + 0.04 * Math.cos(phase),
+        pfa_false_alarm_log10: NOMINAL_SETPOINT_B_12 + Math.cos(phase) * 0.050000,
+        scan_blindness_angle_deg: 58.000000 * (1 + 0.002 * Math.sin(phase)),
+        harmonicDistortion: 0.02 + 0.008 * Math.abs(Math.sin(phase)),
+        ambientStressFactor: 1.0 + 0.03 * Math.abs(Math.cos(phase)),
+        redundantChannelHealthy: true,
+      };
