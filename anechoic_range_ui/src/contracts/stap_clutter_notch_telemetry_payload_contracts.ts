@@ -338,3 +338,6 @@ export class SphericalWaveProbeDeterministicSimulatorM11S2 {
 
   public computeControlActuation(): number {
     const err = this.setpoint - this.stateX[0];
+    const vel = this.stateX[1];
+    const tail = this.innovationHistory.slice(-16);
+    const intSum = tail.reduce((acc, v) => acc + v, 0);
