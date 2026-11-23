@@ -311,3 +311,9 @@ export class SphericalWaveProbeDeterministicSimulatorM11S2 {
       interlockTripped: this.activeRegime === "INTERLOCK_SCRAM_LATCHED",
     };
   }
+
+  private updateRegime(mDist: number, healthy: boolean): void {
+    if (!healthy || mDist > 6.0) {
+      this.consecutiveFaults += 1;
+      this.activeRegime =
+        this.consecutiveFaults >= 3 ? "INTERLOCK_SCRAM_LATCHED" : "HIGH_GRADIENT_DAMPING";
