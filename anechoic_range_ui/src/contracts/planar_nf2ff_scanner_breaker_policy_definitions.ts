@@ -323,3 +323,9 @@ export class OsCfarThresholdDeterministicSimulatorM12S2 {
     } else {
       this.consecutiveFaults = 0;
       this.activeRegime = "CLOSED_LOOP_NOMINAL";
+    }
+  }
+
+  public computeHelmholtzEnergy(pkt: StapAdaptiveWeightPacket): number {
+    const p = pkt.sinr_improvement_db;
+    const s = pkt.clutter_ridge_slope_beta;
