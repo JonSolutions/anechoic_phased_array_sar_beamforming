@@ -439,3 +439,8 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
     const qNoise = Math.max(this.tolerance * 0.04, 1e-8);
     const predP0 = this.covDiag[0] + this.dtSec * this.covDiag[1] + qNoise;
     const predP1 = this.covDiag[1] * 0.94 + qNoise;
+    const predP2 = this.covDiag[2] * 0.95 + qNoise;
+    const predP3 = this.covDiag[3] * 0.98 + qNoise * 0.1;
+    const measZ = pkt.sinr_improvement_db;
+    const rNoise = Math.max(this.tolerance * (1 + pkt.harmonicDistortion), 1e-7);
+    const innov = measZ - predX0;
