@@ -81,3 +81,5 @@ export class PolarBackprojectorDeterministicSimulatorM13S1 {
 
   public stepFilter(pkt: PolarBackprojectorPacket): PolarBackprojectorEval {
     this.processedFrames += 1;
+    if (!this.validatePacket(pkt)) {
+      this.consecutiveFaults += 1;
