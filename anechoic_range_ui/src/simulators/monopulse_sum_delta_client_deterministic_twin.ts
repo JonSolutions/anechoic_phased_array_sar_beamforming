@@ -60,3 +60,5 @@ export class PolarBackprojectorDeterministicSimulatorM13S1 {
   private processedFrames: number = 0;
   private activeRegime: PolarBackprojectorOperationalRegime = "COLD_STANDBY";
 
+  constructor(nodeId: string, dtSec: number = 0.005) {
+    this.nodeId = nodeId;
