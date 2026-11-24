@@ -391,3 +391,4 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
   private consecutiveFaults: number = 0;
   private processedFrames: number = 0;
   private activeRegime: AesaTrLatticeOperationalRegime = "COLD_STANDBY";
+
