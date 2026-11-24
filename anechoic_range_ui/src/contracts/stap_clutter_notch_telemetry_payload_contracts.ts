@@ -374,3 +374,10 @@ export class SphericalWaveProbeDeterministicSimulatorM11S2 {
         redundantChannelHealthy: true,
       };
       results.push(this.stepFilter(pkt));
+    }
+    return results;
+  }
+}
+
+export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
+  private readonly nodeId: string;
