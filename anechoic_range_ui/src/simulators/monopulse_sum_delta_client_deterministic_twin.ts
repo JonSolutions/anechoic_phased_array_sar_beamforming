@@ -55,3 +55,7 @@ export class PolarBackprojectorDeterministicSimulatorM13S1 {
   private stateX: [number, number, number, number];
   private covDiag: [number, number, number, number];
   private readonly windowHistory: number[] = [];
+  private readonly innovationHistory: number[] = [];
+  private consecutiveFaults: number = 0;
+  private processedFrames: number = 0;
+  private activeRegime: PolarBackprojectorOperationalRegime = "COLD_STANDBY";
