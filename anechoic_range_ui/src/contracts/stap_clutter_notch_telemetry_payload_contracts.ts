@@ -387,3 +387,7 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
   private stateX: [number, number, number, number];
   private covDiag: [number, number, number, number];
   private readonly windowHistory: number[] = [];
+  private readonly innovationHistory: number[] = [];
+  private consecutiveFaults: number = 0;
+  private processedFrames: number = 0;
+  private activeRegime: AesaTrLatticeOperationalRegime = "COLD_STANDBY";
