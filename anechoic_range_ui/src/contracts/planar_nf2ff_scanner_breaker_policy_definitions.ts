@@ -421,3 +421,20 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
         epochMs: pkt.epochMs,
         posteriorEstimate: this.stateX[0],
         posteriorVelocity: this.stateX[1],
+        innovationResidual: 0,
+        kalmanGain: 0,
+        mahalanobisDistance: 99.9,
+        helmholtzEnergy: 0,
+        controlActuationEffort: 0,
+        allanVariance: this.computeAllanVariance(),
+        activeRegime: this.activeRegime,
+        interlockTripped: true,
+      };
+    }
+    const predX0 = this.stateX[0] + this.dtSec * this.stateX[1];
+    const predX1 = 0.95 * this.stateX[1] - 0.14 * (this.stateX[0] - this.setpoint);
+    const predX2 = 0.88 * this.stateX[2] + 0.12 * pkt.pfa_false_alarm_log10;
+    const dampX3 = this.stateX[3] * (1 - 0.01 * pkt.harmonicDistortion);
+    const predX3 = Math.max(0.05, Math.min(2.5, dampX3));
+    const qNoise = Math.max(this.tolerance * 0.04, 1e-8);
+    const predP0 = this.covDiag[0] + this.dtSec * this.covDiag[1] + qNoise;
