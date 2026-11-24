@@ -62,3 +62,22 @@ export class PolarBackprojectorDeterministicSimulatorM13S1 {
 
   constructor(nodeId: string, dtSec: number = 0.005) {
     this.nodeId = nodeId;
+    this.dtSec = Math.max(dtSec, 1e-5);
+    this.setpoint = -13.200000;
+    this.tolerance = 0.150000;
+    this.stateX = [-13.200000, 0.0, -1.980000, 1.0];
+    this.covDiag = [0.150000, 0.075000, 0.120000, 0.01];
+  }
+
+  public validatePacket(pkt: PolarBackprojectorPacket): boolean {
+    if (pkt.epochMs <= 0) return false;
+    if (!Number.isFinite(pkt.impulse_response_ipr_cm)) return false;
+    if (!Number.isFinite(pkt.peak_sidelobe_pslr_db)) return false;
+    if (!Number.isFinite(pkt.angle_off_boresight_mrad)) return false;
+    if (!Number.isFinite(pkt.sfdr_spurious_free_db)) return false;
+    if (pkt.harmonicDistortion < 0 || pkt.harmonicDistortion > 1) return false;
+    return pkt.ambientStressFactor > 0;
+  }
+
+  public stepFilter(pkt: PolarBackprojectorPacket): PolarBackprojectorEval {
+    this.processedFrames += 1;
