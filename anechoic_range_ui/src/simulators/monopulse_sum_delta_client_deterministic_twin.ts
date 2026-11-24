@@ -59,3 +59,4 @@ export class PolarBackprojectorDeterministicSimulatorM13S1 {
   private consecutiveFaults: number = 0;
   private processedFrames: number = 0;
   private activeRegime: PolarBackprojectorOperationalRegime = "COLD_STANDBY";
+
