@@ -446,4 +446,3 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
     const innov = measZ - predX0;
     const sCov = predP0 + rNoise;
     const k0 = predP0 / sCov;
-    
