@@ -445,3 +445,5 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
     const rNoise = Math.max(this.tolerance * (1 + pkt.harmonicDistortion), 1e-7);
     const innov = measZ - predX0;
     const sCov = predP0 + rNoise;
+    const k0 = predP0 / sCov;
+    
