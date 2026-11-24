@@ -381,3 +381,4 @@ export class SphericalWaveProbeDeterministicSimulatorM11S2 {
 
 export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
   private readonly nodeId: string;
+  private readonly dtSec: number;
