@@ -415,3 +415,4 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
     this.processedFrames += 1;
     if (!this.validatePacket(pkt)) {
       this.consecutiveFaults += 1;
+      this.activeRegime = "DEGRADED_FALLBACK";
