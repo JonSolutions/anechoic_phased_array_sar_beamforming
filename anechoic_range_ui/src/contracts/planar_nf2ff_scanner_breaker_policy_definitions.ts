@@ -477,3 +477,4 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
       interlockTripped: this.activeRegime === "INTERLOCK_SCRAM_LATCHED",
     };
   }
+
