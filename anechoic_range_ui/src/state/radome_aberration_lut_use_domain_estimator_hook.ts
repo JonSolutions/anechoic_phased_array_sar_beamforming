@@ -24,3 +24,12 @@ export interface BaylissTaylorWeightingPacket {
   readonly harmonicDistortion: number;
   readonly ambientStressFactor: number;
   readonly redundantChannelHealthy: boolean;
+}
+
+export interface BaylissTaylorWeightingEval {
+  readonly nodeId: string;
+  readonly epochMs: number;
+  readonly posteriorEstimate: number;
+  readonly posteriorVelocity: number;
+  readonly innovationResidual: number;
+  readonly kalmanGain: number;
