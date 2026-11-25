@@ -19,3 +19,4 @@ export interface BaylissTaylorWeightingPacket {
   readonly epochMs: number;
   readonly angle_off_boresight_mrad: number;
   readonly null_depth_db: number;
+  readonly sfdr_spurious_free_db: number;
