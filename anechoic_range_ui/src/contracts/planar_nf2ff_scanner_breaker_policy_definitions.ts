@@ -493,3 +493,9 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
   }
 
   public computeHelmholtzEnergy(pkt: StapAdaptiveWeightPacket): number {
+    const p = pkt.sinr_improvement_db;
+    const s = pkt.clutter_ridge_slope_beta;
+    const c = pkt.pfa_false_alarm_log10;
+    const normP = p / Math.max(Math.abs(this.setpoint), 1e-9);
+    const nl = Math.tanh(normP - 1.0);
+    const diff = p - this.setpoint;
