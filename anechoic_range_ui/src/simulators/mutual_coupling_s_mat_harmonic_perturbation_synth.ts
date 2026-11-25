@@ -144,3 +144,4 @@ export class SphericalWaveProbeDeterministicSimulatorM14S1 {
       activeRegime: this.activeRegime,
       interlockTripped: this.activeRegime === "INTERLOCK_SCRAM_LATCHED",
     };
+  }
