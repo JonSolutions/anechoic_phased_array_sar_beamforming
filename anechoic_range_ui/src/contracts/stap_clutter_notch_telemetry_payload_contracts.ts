@@ -407,3 +407,11 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
     if (!Number.isFinite(pkt.six_bit_phase_lsb_deg)) return false;
     if (!Number.isFinite(pkt.probe_corrected_gain_dbi)) return false;
     if (!Number.isFinite(pkt.monostatic_rcs_dbsm)) return false;
+    if (pkt.harmonicDistortion < 0 || pkt.harmonicDistortion > 1) return false;
+    return pkt.ambientStressFactor > 0;
+  }
+
+  public stepFilter(pkt: AesaTrLatticePacket): AesaTrLatticeEval {
+    this.processedFrames += 1;
+    if (!this.validatePacket(pkt)) {
+      this.consecutiveFaults += 1;
