@@ -400,3 +400,10 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
     this.stateX = [-18.500000, 0.0, -2.775000, 1.0];
     this.covDiag = [0.300000, 0.150000, 0.240000, 0.01];
   }
+
+  public validatePacket(pkt: AesaTrLatticePacket): boolean {
+    if (pkt.epochMs <= 0) return false;
+    if (!Number.isFinite(pkt.active_vswr_ratio)) return false;
+    if (!Number.isFinite(pkt.six_bit_phase_lsb_deg)) return false;
+    if (!Number.isFinite(pkt.probe_corrected_gain_dbi)) return false;
+    if (!Number.isFinite(pkt.monostatic_rcs_dbsm)) return false;
