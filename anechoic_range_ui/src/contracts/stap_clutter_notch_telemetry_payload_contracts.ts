@@ -416,3 +416,13 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
     if (!this.validatePacket(pkt)) {
       this.consecutiveFaults += 1;
       this.activeRegime = "DEGRADED_FALLBACK";
+      return {
+        nodeId: this.nodeId,
+        epochMs: pkt.epochMs,
+        posteriorEstimate: this.stateX[0],
+        posteriorVelocity: this.stateX[1],
+        innovationResidual: 0,
+        kalmanGain: 0,
+        mahalanobisDistance: 99.9,
+        helmholtzEnergy: 0,
+        controlActuationEffort: 0,
