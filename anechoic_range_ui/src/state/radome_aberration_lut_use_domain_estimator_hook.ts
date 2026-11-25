@@ -22,3 +22,5 @@ export interface BaylissTaylorWeightingPacket {
   readonly sfdr_spurious_free_db: number;
   readonly boresight_error_slope: number;
   readonly harmonicDistortion: number;
+  readonly ambientStressFactor: number;
+  readonly redundantChannelHealthy: boolean;
