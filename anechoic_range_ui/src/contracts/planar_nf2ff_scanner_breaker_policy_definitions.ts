@@ -501,3 +501,4 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
     const diff = p - this.setpoint;
     return 0.5 * diff * diff + 0.18 * c * nl + PRIMARY_LAW_COEFF_12 * s * s;
   }
+
