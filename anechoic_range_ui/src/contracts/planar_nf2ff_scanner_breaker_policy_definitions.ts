@@ -518,3 +518,4 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
     for (let i = 1; i < this.windowHistory.length; i += 1) {
       const d = this.windowHistory[i] - this.windowHistory[i - 1];
       acc += d * d;
+    }
