@@ -34,3 +34,4 @@ export interface BaylissTaylorWeightingEval {
   readonly innovationResidual: number;
   readonly kalmanGain: number;
   readonly mahalanobisDistance: number;
+  readonly helmholtzEnergy: number;
