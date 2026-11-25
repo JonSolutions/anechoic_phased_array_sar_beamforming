@@ -392,3 +392,5 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
   private processedFrames: number = 0;
   private activeRegime: AesaTrLatticeOperationalRegime = "COLD_STANDBY";
 
+  constructor(nodeId: string, dtSec: number = 0.005) {
+    this.nodeId = nodeId;
