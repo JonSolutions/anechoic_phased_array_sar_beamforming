@@ -459,3 +459,4 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
     this.innovationHistory.push(innov);
     if (this.innovationHistory.length > 128) this.innovationHistory.shift();
     const mDist = Math.sqrt((innov * innov) / Math.max(sCov, 1e-12));
+    this.updateRegime(mDist, pkt.redundantChannelHealthy);
