@@ -35,3 +35,4 @@ export interface BaylissTaylorWeightingEval {
   readonly kalmanGain: number;
   readonly mahalanobisDistance: number;
   readonly helmholtzEnergy: number;
+  readonly controlActuationEffort: number;
