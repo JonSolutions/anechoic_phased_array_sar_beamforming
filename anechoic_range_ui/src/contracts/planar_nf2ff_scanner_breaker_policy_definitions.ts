@@ -509,3 +509,4 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
     const intSum = tail.reduce((acc, v) => acc + v, 0);
     const raw = 0.58 * err - 0.14 * vel + 0.03 * intSum;
     const limit = Math.abs(this.setpoint) * 0.45 + 5.0;
+    return Math.max(-limit, Math.min(limit, raw));
