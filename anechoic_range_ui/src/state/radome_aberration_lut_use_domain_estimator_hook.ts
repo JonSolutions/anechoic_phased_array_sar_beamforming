@@ -21,3 +21,4 @@ export interface BaylissTaylorWeightingPacket {
   readonly null_depth_db: number;
   readonly sfdr_spurious_free_db: number;
   readonly boresight_error_slope: number;
+  readonly harmonicDistortion: number;

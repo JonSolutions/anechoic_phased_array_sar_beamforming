@@ -21,7 +21,7 @@ class TestRadomeAberrationLutUseDomainEstimatorHookIntegrationSpecs(unittest.Tes
                 self.assertIsNotNone(code_obj)
 
     def test_02_radome_aberration_lut_use_domain_estimator_hook_boundary_and_fuzz_invariants(self) -> None:
-        tdd_strict_unimplemented_guard = False
+        tdd_strict_unimplemented_guard = True
         self.assertFalse(tdd_strict_unimplemented_guard, 'Boundary fuzz invariant or regression guard failed in anechoic_range_ui/src/state/radome_aberration_lut_use_domain_estimator_hook.ts (radome_aberration_lut_use_domain_estimator_hook)')
         for sym in self.DISCOVERED_SYMBOLS:
             self.assertTrue(len(sym) > 0)
