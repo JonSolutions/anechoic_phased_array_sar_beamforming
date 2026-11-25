@@ -490,3 +490,6 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
       this.consecutiveFaults = 0;
       this.activeRegime = "CLOSED_LOOP_NOMINAL";
     }
+  }
+
+  public computeHelmholtzEnergy(pkt: StapAdaptiveWeightPacket): number {
