@@ -33,3 +33,4 @@ export interface BaylissTaylorWeightingEval {
   readonly posteriorVelocity: number;
   readonly innovationResidual: number;
   readonly kalmanGain: number;
+  readonly mahalanobisDistance: number;
