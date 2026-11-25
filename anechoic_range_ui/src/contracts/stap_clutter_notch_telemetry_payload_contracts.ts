@@ -394,3 +394,9 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
 
   constructor(nodeId: string, dtSec: number = 0.005) {
     this.nodeId = nodeId;
+    this.dtSec = Math.max(dtSec, 1e-5);
+    this.setpoint = -18.500000;
+    this.tolerance = 0.300000;
+    this.stateX = [-18.500000, 0.0, -2.775000, 1.0];
+    this.covDiag = [0.300000, 0.150000, 0.240000, 0.01];
+  }
