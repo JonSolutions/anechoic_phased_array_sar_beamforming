@@ -164,3 +164,4 @@ export class PolarBackprojectorDeterministicSimulatorM13S1 {
     const p = pkt.impulse_response_ipr_cm;
     const s = pkt.peak_sidelobe_pslr_db;
     const c = pkt.angle_off_boresight_mrad;
+    const normP = p / Math.max(Math.abs(this.setpoint), 1e-9);
