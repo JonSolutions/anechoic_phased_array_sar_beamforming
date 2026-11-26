@@ -24,3 +24,9 @@ export interface FloquetUnitCellArrayPacket {
   readonly harmonicDistortion: number;
   readonly ambientStressFactor: number;
   readonly redundantChannelHealthy: boolean;
+}
+
+export interface FloquetUnitCellArrayEval {
+  readonly nodeId: string;
+  readonly epochMs: number;
+  readonly posteriorEstimate: number;
