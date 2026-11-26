@@ -37,3 +37,5 @@ export interface FloquetUnitCellArrayEval {
   readonly helmholtzEnergy: number;
   readonly controlActuationEffort: number;
   readonly allanVariance: number;
+  readonly activeRegime: FloquetUnitCellArrayOperationalRegime;
+  readonly interlockTripped: boolean;
