@@ -542,3 +542,11 @@ export class FloquetUnitCellArrayDeterministicSimulatorM12S3 {
       results.push(this.stepFilter(pkt));
     }
     return results;
+  }
+}
+
+
+export function evaluateStapAdaptiveWeightSensitivityProfileP1(
+  stateVal: number,
+  refVal: number,
+  stressFactor: number
