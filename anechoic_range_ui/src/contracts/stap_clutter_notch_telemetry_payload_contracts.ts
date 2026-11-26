@@ -441,3 +441,10 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
     const predP1 = this.covDiag[1] * 0.94 + qNoise;
     const predP2 = this.covDiag[2] * 0.95 + qNoise;
     const predP3 = this.covDiag[3] * 0.98 + qNoise * 0.1;
+    const measZ = pkt.active_vswr_ratio;
+    const rNoise = Math.max(this.tolerance * (1 + pkt.harmonicDistortion), 1e-7);
+    const innov = measZ - predX0;
+    const sCov = predP0 + rNoise;
+    const k0 = predP0 / sCov;
+    const k1 = (0.25 * predP1) / sCov;
+    this.stateX = [predX0 + k0 * innov, predX1 + k1 * innov, predX2, predX3];
