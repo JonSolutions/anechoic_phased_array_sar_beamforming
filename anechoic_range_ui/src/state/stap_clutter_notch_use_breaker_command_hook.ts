@@ -9,3 +9,18 @@ export type InverseSarRangeProfileOperationalRegime =
   | "COLD_STANDBY"
   | "PRE_START_CHECK"
   | "CLOSED_LOOP_NOMINAL"
+  | "HIGH_GRADIENT_DAMPING"
+  | "DEGRADED_FALLBACK"
+  | "INTERLOCK_SCRAM_LATCHED";
+
+export interface InverseSarRangeProfilePacket {
+  readonly packetId: string;
+  readonly facilityNodeId: string;
+  readonly epochMs: number;
+  readonly monostatic_rcs_dbsm: number;
+  readonly cross_pol_isolation_db: number;
+  readonly quadratic_phase_err_rad: number;
+  readonly active_vswr_ratio: number;
+  readonly harmonicDistortion: number;
+  readonly ambientStressFactor: number;
+  readonly redundantChannelHealthy: boolean;
