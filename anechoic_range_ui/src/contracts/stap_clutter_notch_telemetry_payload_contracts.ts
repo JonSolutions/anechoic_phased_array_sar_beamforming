@@ -434,3 +434,4 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
     const predX0 = this.stateX[0] + this.dtSec * this.stateX[1];
     const predX1 = 0.95 * this.stateX[1] - 0.14 * (this.stateX[0] - this.setpoint);
     const predX2 = 0.88 * this.stateX[2] + 0.12 * pkt.probe_corrected_gain_dbi;
+    const dampX3 = this.stateX[3] * (1 - 0.01 * pkt.harmonicDistortion);
