@@ -578,3 +578,4 @@ export function evaluatePolarBackprojectorSensitivityProfileP2(
     jacobianTrace: Number(jacobianTrace.toFixed(7)),
     stabilityMargin: Number(stabilityMargin.toFixed(7)),
   };
+}
