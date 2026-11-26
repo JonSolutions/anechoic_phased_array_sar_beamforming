@@ -24,3 +24,8 @@ export interface InverseSarRangeProfilePacket {
   readonly harmonicDistortion: number;
   readonly ambientStressFactor: number;
   readonly redundantChannelHealthy: boolean;
+}
+
+export interface InverseSarRangeProfileEval {
+  readonly nodeId: string;
+  readonly epochMs: number;
