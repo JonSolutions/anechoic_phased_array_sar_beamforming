@@ -575,3 +575,6 @@ export function evaluatePolarBackprojectorSensitivityProfileP2(
   const stabilityMargin = jacobianTrace - 0.85 * Math.abs(norm);
   return {
     normResidual: Number(norm.toFixed(7)),
+    jacobianTrace: Number(jacobianTrace.toFixed(7)),
+    stabilityMargin: Number(stabilityMargin.toFixed(7)),
+  };
