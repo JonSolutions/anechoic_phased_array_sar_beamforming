@@ -454,3 +454,4 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
       predP2,
       predP3,
     ];
+    this.windowHistory.push(measZ);
