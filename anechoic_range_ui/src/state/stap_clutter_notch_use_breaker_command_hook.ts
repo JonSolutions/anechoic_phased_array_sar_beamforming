@@ -41,3 +41,6 @@ export interface InverseSarRangeProfileEval {
   readonly interlockTripped: boolean;
 }
 
+export const NOMINAL_SETPOINT_A_17: number = -18.500000;
+export const NOMINAL_TOLERANCE_A_17: number = 0.300000;
+export const NOMINAL_SETPOINT_B_17: number = 0.180000;
