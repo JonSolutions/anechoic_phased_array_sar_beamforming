@@ -579,3 +579,11 @@ export function evaluatePolarBackprojectorSensitivityProfileP2(
     stabilityMargin: Number(stabilityMargin.toFixed(7)),
   };
 }
+
+export function evaluateSphericalWaveProbeSensitivityProfileP3(
+  stateVal: number,
+  refVal: number,
+  stressFactor: number
+): { normResidual: number; jacobianTrace: number; stabilityMargin: number } {
+  const denom = Math.max(Math.abs(refVal), 1e-9);
+  const norm = (stateVal - refVal) / denom;
