@@ -36,3 +36,4 @@ export interface FloquetUnitCellArrayEval {
   readonly mahalanobisDistance: number;
   readonly helmholtzEnergy: number;
   readonly controlActuationEffort: number;
+  readonly allanVariance: number;
