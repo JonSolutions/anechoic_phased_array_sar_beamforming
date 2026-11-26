@@ -430,3 +430,4 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
         activeRegime: this.activeRegime,
         interlockTripped: true,
       };
+    }
