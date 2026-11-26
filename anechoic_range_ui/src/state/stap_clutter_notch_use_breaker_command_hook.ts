@@ -40,3 +40,4 @@ export interface InverseSarRangeProfileEval {
   readonly activeRegime: InverseSarRangeProfileOperationalRegime;
   readonly interlockTripped: boolean;
 }
+
