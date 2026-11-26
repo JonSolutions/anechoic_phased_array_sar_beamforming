@@ -555,3 +555,4 @@ export function evaluateStapAdaptiveWeightSensitivityProfileP1(
   const norm = (stateVal - refVal) / denom;
   const sech2 = 1 - Math.tanh(norm) ** 2;
   const jacobianTrace = 1 + (0.42 * sech2) / Math.max(stressFactor, 1e-6);
+  const stabilityMargin = jacobianTrace - 0.85 * Math.abs(norm);
