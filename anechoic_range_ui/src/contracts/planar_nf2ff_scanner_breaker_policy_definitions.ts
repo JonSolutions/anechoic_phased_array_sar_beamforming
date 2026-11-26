@@ -550,3 +550,5 @@ export function evaluateStapAdaptiveWeightSensitivityProfileP1(
   stateVal: number,
   refVal: number,
   stressFactor: number
+): { normResidual: number; jacobianTrace: number; stabilityMargin: number } {
+  const denom = Math.max(Math.abs(refVal), 1e-9);
