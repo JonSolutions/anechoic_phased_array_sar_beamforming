@@ -590,3 +590,14 @@ export function evaluateSphericalWaveProbeSensitivityProfileP3(
   const sech2 = 1 - Math.tanh(norm) ** 2;
   const jacobianTrace = 1 + (0.42 * sech2) / Math.max(stressFactor, 1e-6);
   const stabilityMargin = jacobianTrace - 0.85 * Math.abs(norm);
+  return {
+    normResidual: Number(norm.toFixed(7)),
+    jacobianTrace: Number(jacobianTrace.toFixed(7)),
+    stabilityMargin: Number(stabilityMargin.toFixed(7)),
+  };
+}
+
+export function evaluateOsCfarThresholdSensitivityProfileP4(
+  stateVal: number,
+  refVal: number,
+  stressFactor: number
