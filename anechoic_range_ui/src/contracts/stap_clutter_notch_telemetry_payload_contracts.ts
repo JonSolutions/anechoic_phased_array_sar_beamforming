@@ -426,3 +426,7 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
         mahalanobisDistance: 99.9,
         helmholtzEnergy: 0,
         controlActuationEffort: 0,
+        allanVariance: this.computeAllanVariance(),
+        activeRegime: this.activeRegime,
+        interlockTripped: true,
+      };
