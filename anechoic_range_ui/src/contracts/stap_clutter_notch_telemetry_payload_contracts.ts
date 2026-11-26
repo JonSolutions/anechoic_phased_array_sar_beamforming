@@ -431,3 +431,4 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
         interlockTripped: true,
       };
     }
+    const predX0 = this.stateX[0] + this.dtSec * this.stateX[1];
