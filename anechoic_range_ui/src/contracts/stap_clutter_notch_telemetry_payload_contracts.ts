@@ -462,3 +462,12 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
     this.updateRegime(mDist, pkt.redundantChannelHealthy);
     const energy = this.computeHelmholtzEnergy(pkt);
     const effort = this.computeControlActuation();
+    return {
+      nodeId: this.nodeId,
+      epochMs: pkt.epochMs,
+      posteriorEstimate: Number(this.stateX[0].toFixed(7)),
+      posteriorVelocity: Number(this.stateX[1].toFixed(7)),
+      innovationResidual: Number(innov.toFixed(7)),
+      kalmanGain: Number(k0.toFixed(7)),
+      mahalanobisDistance: Number(mDist.toFixed(7)),
+      helmholtzEnergy: Number(energy.toFixed(7)),
