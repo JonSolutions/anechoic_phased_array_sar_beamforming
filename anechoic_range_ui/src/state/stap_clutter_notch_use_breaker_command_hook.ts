@@ -29,3 +29,14 @@ export interface InverseSarRangeProfilePacket {
 export interface InverseSarRangeProfileEval {
   readonly nodeId: string;
   readonly epochMs: number;
+  readonly posteriorEstimate: number;
+  readonly posteriorVelocity: number;
+  readonly innovationResidual: number;
+  readonly kalmanGain: number;
+  readonly mahalanobisDistance: number;
+  readonly helmholtzEnergy: number;
+  readonly controlActuationEffort: number;
+  readonly allanVariance: number;
+  readonly activeRegime: InverseSarRangeProfileOperationalRegime;
+  readonly interlockTripped: boolean;
+}

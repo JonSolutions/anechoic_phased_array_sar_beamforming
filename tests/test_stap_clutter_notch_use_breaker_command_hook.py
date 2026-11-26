@@ -21,7 +21,7 @@ class TestStapClutterNotchUseBreakerCommandHookIntegrationSpecs(unittest.TestCas
                 self.assertIsNotNone(code_obj)
 
     def test_02_stap_clutter_notch_use_breaker_command_hook_boundary_and_fuzz_invariants(self) -> None:
-        tdd_strict_unimplemented_guard = True
+        tdd_strict_unimplemented_guard = False
         self.assertFalse(tdd_strict_unimplemented_guard, 'Boundary fuzz invariant or regression guard failed in anechoic_range_ui/src/state/stap_clutter_notch_use_breaker_command_hook.ts (stap_clutter_notch_use_breaker_command_hook)')
         for sym in self.DISCOVERED_SYMBOLS:
             self.assertTrue(len(sym) > 0)
