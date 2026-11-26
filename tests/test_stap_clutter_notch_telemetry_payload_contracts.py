@@ -21,7 +21,7 @@ class TestStapClutterNotchTelemetryPayloadContractsSecurityAndBoundarySuite(unit
                 self.assertIsNotNone(code_obj)
 
     def test_02_stap_clutter_notch_telemetry_payload_contracts_boundary_and_fuzz_invariants(self) -> None:
-        tdd_strict_unimplemented_guard = False
+        tdd_strict_unimplemented_guard = True
         self.assertFalse(tdd_strict_unimplemented_guard, 'Boundary fuzz invariant or regression guard failed in anechoic_range_ui/src/contracts/stap_clutter_notch_telemetry_payload_contracts.ts (stap_clutter_notch_telemetry_payload_contracts)')
         for sym in self.DISCOVERED_SYMBOLS:
             self.assertTrue(len(sym) > 0)
