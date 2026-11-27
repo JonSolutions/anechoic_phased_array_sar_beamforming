@@ -629,3 +629,4 @@ export function evaluateBaylissTaylorWeightingSensitivityProfileP5(
     jacobianTrace: Number(jacobianTrace.toFixed(7)),
     stabilityMargin: Number(stabilityMargin.toFixed(7)),
   };
+}
