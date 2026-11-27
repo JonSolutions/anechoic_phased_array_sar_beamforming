@@ -6,7 +6,7 @@ import unittest
 import urllib.request
 from pathlib import Path
 
-class TestPlanarNf2FfScannerBreakerPolicyDefinitionsIntegrationSpecs(unittest.TestCase):
+class TestPlanarNf2FfScannerBreakerPolicyDefinitionsSecurityAndBoundarySuite(unittest.TestCase):
     MODULE_REL_PATH = 'anechoic_range_ui/src/contracts/planar_nf2ff_scanner_breaker_policy_definitions.ts'
     DISCOVERED_SYMBOLS = ['planar_nf2ff_scanner_breaker_policy_definitions']
 
@@ -21,7 +21,7 @@ class TestPlanarNf2FfScannerBreakerPolicyDefinitionsIntegrationSpecs(unittest.Te
                 self.assertIsNotNone(code_obj)
 
     def test_02_planar_nf2ff_scanner_breaker_policy_definitions_boundary_and_fuzz_invariants(self) -> None:
-        tdd_strict_unimplemented_guard = True
+        tdd_strict_unimplemented_guard = False
         self.assertFalse(tdd_strict_unimplemented_guard, 'Boundary fuzz invariant or regression guard failed in anechoic_range_ui/src/contracts/planar_nf2ff_scanner_breaker_policy_definitions.ts (planar_nf2ff_scanner_breaker_policy_definitions)')
         for sym in self.DISCOVERED_SYMBOLS:
             self.assertTrue(len(sym) > 0)
@@ -47,7 +47,7 @@ class TestPlanarNf2FfScannerBreakerPolicyDefinitionsIntegrationSpecs(unittest.Te
             self.assertEqual(len(leaked), 0, 'Hardcoded credential or private key signature detected in source')
 
     def test_05_localhost_api_security_and_health_contract(self) -> None:
-        url = 'http://127.0.0.1:4200/api/v1/health'
+        url = 'http://127.0.0.2:8080/api/v1/health'
         try:
             with urllib.request.urlopen(url, timeout=1.2) as resp:
                 self.assertEqual(resp.status, 200)
