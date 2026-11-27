@@ -664,3 +664,5 @@ export function evaluateFloquetUnitCellArraySensitivityProfileP7(
     stabilityMargin: Number(stabilityMargin.toFixed(7)),
   };
 }
+
+export function evaluateDirectRfSubsamplingAdcSensitivityProfileP8(
