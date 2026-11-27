@@ -21,7 +21,7 @@ class TestPlanarNf2FfScannerBreakerPolicyDefinitionsSecurityAndBoundarySuite(uni
                 self.assertIsNotNone(code_obj)
 
     def test_02_planar_nf2ff_scanner_breaker_policy_definitions_boundary_and_fuzz_invariants(self) -> None:
-        tdd_strict_unimplemented_guard = False
+        tdd_strict_unimplemented_guard = True
         self.assertFalse(tdd_strict_unimplemented_guard, 'Boundary fuzz invariant or regression guard failed in anechoic_range_ui/src/contracts/planar_nf2ff_scanner_breaker_policy_definitions.ts (planar_nf2ff_scanner_breaker_policy_definitions)')
         for sym in self.DISCOVERED_SYMBOLS:
             self.assertTrue(len(sym) > 0)

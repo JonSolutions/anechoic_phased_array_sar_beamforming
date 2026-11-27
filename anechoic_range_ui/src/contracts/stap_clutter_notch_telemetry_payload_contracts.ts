@@ -471,3 +471,9 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
       kalmanGain: Number(k0.toFixed(7)),
       mahalanobisDistance: Number(mDist.toFixed(7)),
       helmholtzEnergy: Number(energy.toFixed(7)),
+      controlActuationEffort: Number(effort.toFixed(7)),
+      allanVariance: Number(this.computeAllanVariance().toFixed(8)),
+      activeRegime: this.activeRegime,
+      interlockTripped: this.activeRegime === "INTERLOCK_SCRAM_LATCHED",
+    };
+  }
