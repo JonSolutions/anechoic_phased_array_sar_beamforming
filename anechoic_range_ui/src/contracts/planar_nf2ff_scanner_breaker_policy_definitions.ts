@@ -666,3 +666,6 @@ export function evaluateFloquetUnitCellArraySensitivityProfileP7(
 }
 
 export function evaluateDirectRfSubsamplingAdcSensitivityProfileP8(
+  stateVal: number,
+  refVal: number,
+  stressFactor: number
