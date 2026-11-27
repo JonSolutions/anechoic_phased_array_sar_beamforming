@@ -489,3 +489,4 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
     } else {
       this.consecutiveFaults = 0;
       this.activeRegime = "CLOSED_LOOP_NOMINAL";
+    }
