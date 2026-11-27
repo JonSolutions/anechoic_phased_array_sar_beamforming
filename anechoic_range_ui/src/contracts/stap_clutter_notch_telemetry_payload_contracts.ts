@@ -477,3 +477,4 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
       interlockTripped: this.activeRegime === "INTERLOCK_SCRAM_LATCHED",
     };
   }
+
