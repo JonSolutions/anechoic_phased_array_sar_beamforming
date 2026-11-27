@@ -488,3 +488,4 @@ export class InverseSarRangeProfileDeterministicSimulatorM11S3 {
       this.activeRegime = "HIGH_GRADIENT_DAMPING";
     } else {
       this.consecutiveFaults = 0;
+      this.activeRegime = "CLOSED_LOOP_NOMINAL";
