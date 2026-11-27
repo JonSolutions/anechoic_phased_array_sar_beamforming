@@ -614,3 +614,7 @@ export function evaluateOsCfarThresholdSensitivityProfileP4(
   };
 }
 
+export function evaluateBaylissTaylorWeightingSensitivityProfileP5(
+  stateVal: number,
+  refVal: number,
+  stressFactor: number
