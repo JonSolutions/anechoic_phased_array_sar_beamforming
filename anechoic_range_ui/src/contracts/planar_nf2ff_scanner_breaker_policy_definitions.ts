@@ -682,3 +682,4 @@ export function evaluateDirectRfSubsamplingAdcSensitivityProfileP8(
   };
 }
 
+export function evaluatePhaseGradientAutofocusSensitivityProfileP9(
