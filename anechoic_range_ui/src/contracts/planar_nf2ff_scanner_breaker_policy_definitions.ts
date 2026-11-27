@@ -638,3 +638,4 @@ export function evaluateInverseSarRangeProfileSensitivityProfileP6(
 ): { normResidual: number; jacobianTrace: number; stabilityMargin: number } {
   const denom = Math.max(Math.abs(refVal), 1e-9);
   const norm = (stateVal - refVal) / denom;
+  const sech2 = 1 - Math.tanh(norm) ** 2;
